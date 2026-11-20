@@ -1,0 +1,32 @@
+# Devin Hub — aspirational topology (not parsed by the runnable MVP)
+schema_version: "0.1"
+hub:
+  id: mini-pc-hub
+  role: coordinator
+  grpc_listen: "127.0.0.1:50051"
+  state_dir: "./data"
+network:
+  overlay: tailscale
+  rpc: grpc
+  async_bus: nats_jetstream
+  tls_required: true
+  auth:
+    token_env: DEVIN_HUB_TOKEN
+nodes:
+  - id: mac-dev
+    role: worker
+    capabilities: [git, shell, ide]
+  - id: windows-dev
+    role: worker
+    capabilities: [git, shell]
+events:
+  topics: [git.diff, git.commit, test.result, shell.exit, ide.diagnostic]
+  redaction_required: true
+review:
+  strategy: rules_first
+  semantic_review: planned
+  automatic_patches: false
+notifications:
+  desktop: planned
+  ide: planned
+  minimum_severity: medium

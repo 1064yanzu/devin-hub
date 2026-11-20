@@ -1,0 +1,15 @@
+# Illustrative settings only. The current Python MVP reads environment
+# variables and CLI flags, not this YAML file.
+runtime:
+  host: 127.0.0.1
+  port: 8765
+  database: ./data/events.sqlite3
+  token_env: DEVIN_HUB_TOKEN
+clients:
+  url_env: DEVIN_HUB_URL
+  node_ids: [mac-dev, windows-dev]
+events:
+  max_body_bytes: 65536
+privacy:
+  git_scan_content: false
+  git_scan_file_names: true

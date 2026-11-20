@@ -1,0 +1,14 @@
+{
+  "id": "demo-event-001",
+  "node_id": "mac-dev",
+  "project_id": "sample-app",
+  "kind": "git.diff",
+  "payload": {
+    "branch": "feature/new-auth",
+    "changed_files": [
+      "package.json",
+      "src/auth/session.ts",
+      "db/migrations/002_add_tokens.sql"
+    ]
+  }
+}
